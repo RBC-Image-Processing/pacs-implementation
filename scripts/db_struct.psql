@@ -1,0 +1,48 @@
+\o db_struct.txt
+
+-- Show schemas and current schema path
+SELECT nspname AS "Name", pg_catalog.pg_get_userbyid(nspowner) AS "Owner"
+FROM pg_catalog.pg_namespace
+WHERE nspname !~ '^pg_' AND nspname <> 'information_schema'
+ORDER BY 1;
+
+SELECT current_setting('search_path') AS search_path;
+
+-- List all tables
+SELECT schemaname, tablename, tableowner
+FROM pg_catalog.pg_tables
+WHERE schemaname = 'public'
+ORDER BY schemaname, tablename;
+
+-- For each table, display row count, structure, and first 5 rows
+DO $$
+DECLARE
+    table_name text;
+BEGIN
+    FOR table_name IN 
+        SELECT tablename FROM pg_tables WHERE schemaname = 'public'
+    LOOP
+        RAISE NOTICE E'\n--- Table: %', table_name;
+        
+        -- Row count
+        EXECUTE format('SELECT ''Row count: '' || COUNT(*)::text FROM %I', table_name);
+        
+        -- Table structure
+        EXECUTE format('
+            SELECT 
+                column_name, 
+                data_type, 
+                character_maximum_length,
+                is_nullable
+            FROM 
+                information_schema.columns 
+            WHERE 
+                table_name = %L', table_name);
+        
+        -- First 5 rows
+        RAISE NOTICE '--- First 5 rows:';
+        EXECUTE format('SELECT * FROM %I LIMIT 5', table_name);
+    END LOOP;
+END $$;
+
+\o

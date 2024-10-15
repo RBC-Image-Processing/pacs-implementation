@@ -1,0 +1,31 @@
+  Name  |       Owner        
+--------+--------------------
+ public | midap_pacs_db_user
+(1 row)
+
+   search_path   
+-----------------
+ "$user", public
+(1 row)
+
+ schemaname |       tablename       |     tableowner     
+------------+-----------------------+--------------------
+ public     | attachedfiles         | midap_pacs_db_user
+ public     | changes               | midap_pacs_db_user
+ public     | deletedfiles          | midap_pacs_db_user
+ public     | deletedresources      | midap_pacs_db_user
+ public     | dicomidentifiers      | midap_pacs_db_user
+ public     | exportedresources     | midap_pacs_db_user
+ public     | globalintegers        | midap_pacs_db_user
+ public     | globalproperties      | midap_pacs_db_user
+ public     | labels                | midap_pacs_db_user
+ public     | maindicomtags         | midap_pacs_db_user
+ public     | metadata              | midap_pacs_db_user
+ public     | patientrecyclingorder | midap_pacs_db_user
+ public     | remainingancestor     | midap_pacs_db_user
+ public     | resources             | midap_pacs_db_user
+ public     | serverproperties      | midap_pacs_db_user
+ public     | storagearea           | midap_pacs_db_user
+(16 rows)
+
+DO
