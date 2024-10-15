@@ -1,0 +1,21 @@
+{
+  /**
+   * The following options control the configuration of the GDCM
+   * plugin for transcoding/decoding DICOM images.
+   **/
+  "Gdcm" : {
+    "Enable" : true,   // Whether GDCM support is enabled
+
+    // Restrict the transfer syntaxes that are considered by GDCM
+    /**  
+      "RestrictTransferSyntaxes" : [
+      "1.2.840.10008.1.2.4.90",   // JPEG 2000 Image Compression (Lossless Only)
+      "1.2.840.10008.1.2.4.91",   // JPEG 2000 Image Compression
+      "1.2.840.10008.1.2.4.92",   // JPEG 2000 Part 2 Multicomponent Image Compression (Lossless Only)
+      "1.2.840.10008.1.2.4.93"    // JPEG 2000 Part 2 Multicomponent Image Compression
+      ],
+    **/
+
+    "Throttling" : 4   // Maximum number of threads that can simultaneously call GDCM
+  }
+}
