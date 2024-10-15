@@ -19,7 +19,7 @@ def setup_kaggle_credentials():
     # Write the credentials to kaggle.json if it doesn't exist
     if not os.path.exists(kaggle_json_path):
         with open(kaggle_json_path, "w") as f:
-            f.write('{"username":"periclesadjovi","key":"020903b117254607d2a5ee82d80a2438"}')
+            f.write('{"username":"example","key":"012345"}')
         os.chmod(kaggle_json_path, 0o600)  # Set permissions
         print("Kaggle credentials written to ~/.kaggle/kaggle.json")
     else:
