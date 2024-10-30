@@ -1,12 +1,10 @@
-DO $$ DECLARE
-    r RECORD;
-BEGIN
-    -- Loop over all tables in the public schema
-    FOR r IN (SELECT tablename FROM pg_tables WHERE schemaname = 'public') LOOP
-        -- Execute the drop for each table
-        EXECUTE 'DROP TABLE IF EXISTS ' || quote_ident(r.tablename) || ' CASCADE';
-    END LOOP;
-END $$;
+-- Drop the public schema and all contents, and recreate it
+DROP SCHEMA public CASCADE;
+CREATE SCHEMA public;
+
+-- Set default permissions for your user and the public role
+GRANT ALL ON SCHEMA public TO midap_pacs_db_user;
+GRANT ALL ON SCHEMA public TO public;
 
 
 VACUUM FULL;

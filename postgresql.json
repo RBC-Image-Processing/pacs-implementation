@@ -4,9 +4,9 @@
         "EnableStorage" : true,
         "Host" : "dpg-cs6nmv5umphs73e7sp80-a.oregon-postgres.render.com",
         "Port" : 5432,
-        "Database" : "midap_pacs_db",
+        "Database" : "midap_pacs_db_oi7c",
         "Username" : "midap_pacs_db_user",
-        "Password" : "u1ntzCNRidQx9nKinz2ux1VdaMQuGLvD",
+        "Password" : "On1FvlPeE1s9bQ1jl2oxgeWTR8ha8K9x",
         "Lock" : true,
         "EnableSsl" : true,  // Enable SSL if required
         "MaximumConnectionRetries" : 10,
