@@ -2,7 +2,7 @@
     "PostgreSQL" : {
         "EnableIndex" : true,
         "EnableStorage" : true,
-        "Host" : "dpg-cs6nmv5umphs73e7sp80-a.oregon-postgres.render.com",
+        "Host" : "dpg-csh5fhdumphs73865sb0-a.oregon-postgres.render.com",
         "Port" : 5432,
         "Database" : "midap_pacs_db_oi7c",
         "Username" : "midap_pacs_db_user",
