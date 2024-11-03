@@ -10,6 +10,7 @@ This documentation provides a step-by-step guide on installing and configuring O
 - [Overview](#overview)
 - [Installation](#installation)
 - [Service Commands](#service-commands)
+- [Accessing Orthanc](#accessing-orthanc)
 - [Reference](#reference)
 
 ---
@@ -58,6 +59,16 @@ sudo service orthanc restart`
 
 These commands allow you to start, stop, or restart the Orthanc service as needed.
 
+
+
+## Accessing Orthanc
+-----------------
+
+Once Orthanc is installed and the service is running, you can access the Orthanc web interface using the following URL:
+
+-   **URL**: <http://172.29.98.120:8042/>
+
+Replace `172.29.98.120` with your server's IP address if it differs. This URL opens the Orthanc web dashboard, allowing you to view, upload, and manage DICOM images through a web browser.
 
 
 ## Reference
