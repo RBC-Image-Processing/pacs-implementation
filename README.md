@@ -68,7 +68,7 @@ Once Orthanc is installed and the service is running, you can access the Orthanc
 
 -   **URL**: <http://172.29.98.120:8042/>
 
-Replace `172.29.98.120` with your server's IP address if it differs. This URL opens the Orthanc web dashboard, allowing you to view, upload, and manage DICOM images through a web browser.
+ `172.29.98.120` . This URL opens the Orthanc web dashboard, allowing you to view, upload, and manage DICOM images through a web browser.
 
 
 ## Reference
