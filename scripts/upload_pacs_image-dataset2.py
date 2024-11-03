@@ -1,5 +1,6 @@
 import os
 import logging
+import zipfile
 import pydicom
 import requests
 from kaggle.api.kaggle_api_extended import KaggleApi
@@ -24,7 +25,7 @@ def setup_kaggle_credentials():
     else:
         logger.info("Kaggle credentials already exist.")
 
-# Function to download dataset from Kaggle
+# Function to download and unzip the dataset from Kaggle
 def download_kaggle_dataset(dataset, download_path):
     try:
         if os.path.exists(download_path) and os.listdir(download_path):
@@ -34,8 +35,16 @@ def download_kaggle_dataset(dataset, download_path):
         api = KaggleApi()
         api.authenticate()
         logger.info(f"Downloading {dataset} from Kaggle...")
-        api.competition_download_files(dataset, path=download_path, unzip=True)
+        zip_path = os.path.join(download_path, f"{dataset}.zip")
+        api.competition_download_files(dataset, path=download_path)
+        
+        # Unzip the downloaded file
+        with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+            zip_ref.extractall(download_path)
         logger.info(f"Downloaded and extracted {dataset} to {download_path}")
+        
+        # Remove the zip file after extraction
+        os.remove(zip_path)
     except Exception as e:
         logger.error(f"An error occurred while downloading the dataset: {e}")
 
@@ -69,6 +78,7 @@ def process_and_upload_images(kaggle_dataset, dataset_directory, orthanc_url, or
     for subset in ['stage_2_test_images', 'stage_2_train_images']:
         subset_path = os.path.join(dataset_directory, subset)
         
+        # Check if subset directory exists
         if not os.path.exists(subset_path):
             logger.warning(f"Subset directory {subset_path} not found.")
             continue
